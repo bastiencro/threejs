@@ -45,7 +45,8 @@ const renderer = new THREE.WebGLRenderer({
 //let time = Date.now(); METHOD WITH DATE
 //const clock = new THREE.Clock(); METHOD WITH TIME
 
-gsap.to(mesh.position, {duration: 1, delay: 1, x: 2}); // METHOD WITH GSAP LIBRARY
+gsap.to(mesh.position, {duration: 1, delay: 1, x: 2});
+ // METHOD WITH GSAP LIBRARY
 
 
 const tick = () =>
