@@ -2,7 +2,6 @@ console.log('javascript is working');
 import * as THREE from 'three'
 //console.log(THREE);
 
-let posX = 0;
 
 //Canva
 const canvas = document.querySelector('canvas.webgl');
@@ -17,12 +16,16 @@ const sizes = {
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x00ffff);
 
+//Axes helper
+const axesHelper = new THREE.AxesHelper(2);
+scene.add(axesHelper);
+
 
 //Object
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 const material = new THREE.MeshBasicMaterial({ color : 0xff0000});
 const mesh = new THREE.Mesh(geometry, material);
-mesh.position.x = posX;
+mesh.position.set(0.7, - 0.6, 1)
 
 scene.add(mesh);
 
@@ -30,6 +33,8 @@ scene.add(mesh);
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 3;
 scene.add(camera);
+
+console.log(mesh.position.distanceTo(camera.position))
 
 //Renderer
 const renderer = new THREE.WebGLRenderer({
